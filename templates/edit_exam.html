@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+    <div class="row row-col-3">
+        <div class="card">
+            <h4 class="card-title text-center" >Exam</h4>
+                <table>
+                    <tr align='center' bgcolor="lightgrey">
+                        <th width="200">Name</th>
+                        <th width="300">Surname</th>
+                        <th width="200">Exam result</th>
+                    </tr >
+                    <form method="POST">
+                        {% csrf_token %}
+                            <tr align='center' bgcolor="white">
+                                    <th>{{student.name }}</th>
+                                    <th>{{ student.last_name }}</th>
+                                    <th><input name="grade" value="{{ student.grade }}" type="number"></th>
+                            </tr>
+                        <tr align='center'>
+                            <th></th>
+                            <th></th>
+                            <th>
+                                <button type='submit' class="btn btn-primary m-3">Submit</button>
+                            </th>
+                        </tr>
+                    </form>
+                        <tr align="center">
+                            <th></th>
+                            <th></th>
+                            <th>
+                                <a href="{% url 'group_exam' student.teacher_id student.group_id student.exam_id %}">
+                                    <button class="btn btn-primary"> <- back </button>
+                                </a>
+                            </th>
+                        </tr>
+                </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container  my-5">
+    <div class="row row-cols-1 row-col-6 g-4">
+        <div class="col">
+            <div class="card">
+                <h2 class="card-title">Teacher</h2><br>
+                <h4 class="card-title">name : {{ teacher.name }}</h4><br>
+                <h4 class="card-title">surname : {{ teacher.last_name }}</h4><br>
+                <h4 class="card-title">teacher id : {{ teacher.id }}</h4><br>
+                <h4 class="card-title">subject : {{ teacher.subject_name }}</h4><br>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <table>
+                    <tr align='center' bgcolor="lightgrey">
+                        <th>Class</th>
+                        <th>Past Exam Results</th>
+                        <th>New Exam Results</th>
+                        <th></th>
+                    </tr >
+                    {% for group in groups %}
+                        <tr align='center' bgcolor="white">
+                            <th>{{ group.branch }}</th>
+                            <th><a style="text-decoration: none;" href="{% url 'old_exams' teacher.id group.id %}">old results</a></th>
+                            <th><a style="text-decoration: none;" href="{% url 'new_exam' teacher.id group.id %}">enter new results</a></th>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

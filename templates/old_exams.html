@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container  my-5">
+    <div class="row row-cols-1 g-4">
+        <div class="col">
+            <div class="card">
+                <table>
+                    <tr align='center' bgcolor="lightgrey">
+                        <th width="200">Exams</th>
+                    </tr >
+                    {% for exam in exams %}
+                    <tr align="center" >
+                        <th>
+                            <a href="{% url 'group_exam' teacher.id exam.group_id exam.id %}"><button class="btn btn-light my-3">{{ teacher.subject_name }} {{ exam.exam_num }}. exam</button></a>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                    <tr align="center">
+                        <th>
+                            <a href="{% url 'teacher_info' teacher.id %}"><button class="btn btn-primary my-3"> <- back </button></a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

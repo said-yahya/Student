@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container text-center my-5">
+    <div class="row row-col-2">
+        <div class="col">
+            <div class="card">
+                <h4 class="card-title">Student Log in</h4>
+                <form method="post" >
+                    {% csrf_token %}
+                    <br><label>Enter first name : </label>
+                    <input type="text" name="std_name"><br>
+                    <br><label>Enter last name : </label>
+                    <input type="text" name="std_lastname"><br>
+                    <br><label>Enter id : </label>
+                    <input type="number" name="std_id"><br>
+                    <br><button type="submit" class="btn btn-primary">log in</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <h4 class="card-title">Teacher Log in</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    <br><label>Enter first name : </label>
+                    <input type="text" name="teach_name"><br>
+                    <br><label>Enter last name : </label>
+                    <input type="text" name="teach_lastname"><br>
+                    <br><label>Enter id : </label>
+                    <input type="number" name="teach_id"><br>
+                    <br><button type="submit" class="btn btn-primary">log in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

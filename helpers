@@ -1,0 +1,3 @@
+#### DATABASE setting
+-----  CREATE USER "student_user" WITH PASSWORD 'student_pass';
+-----  CREATE DATABASE "student_db" OWNER 'student_user';

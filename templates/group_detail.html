@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container  my-5">
+  <div class="row row-col-1">
+    <div class="card">
+      {% for student in students %}
+        <h4 class="card-title">{{ student.name }}    {{ student.last_name }}</h4>
+        <hr>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

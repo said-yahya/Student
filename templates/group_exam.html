@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container  my-5">
+    <div class="row row-cols-1 row-col-6 g-4">
+        <div class="col">
+            <div class="card">
+                <table>
+                    <tr align='center' bgcolor="lightgrey">
+                        <th width="200">Name</th>
+                        <th width="300">Surname</th>
+                        <th width="200">Exam result</th>
+                        <th width="100"></th>
+                    </tr >
+                    {% for exam in exams %}
+                    <tr align='center'>
+                            <th width="200">{{ exam.name }}</th>
+                            <th width="300">{{ exam.last_name }}</th>
+                            <th width="200">{{ exam.grade }}</th>
+                            <th>
+                                <a href="{% url 'edit_exam'  exam.exam_id exam.id  %}">
+                                    <button class="btn btn-light">edit</button>
+                                </a>
+                            </th>
+                    </tr>
+                    {% endfor %}
+                    <tr align="center">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <a href="{% url 'old_exams' teacher_id group_id %}">
+                                <button class="btn btn-primary my-3"> <- back </button>
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

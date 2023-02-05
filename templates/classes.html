@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container text-center my-5">
+  <div class="row row-col-1">
+    <div class="card">
+      <br>
+      {% for group in groups %}
+        <a href="{% url 'group_detail' group.id %}"  style="text-decoration: none;"><h4 class="card-title">{{ group.branch }}</h4></a>
+        <hr>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

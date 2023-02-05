@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container  my-5">
+    <div class="row row-col-6">
+        <div class="col">
+            <div class="card">
+                <h4 class="card-title">name : {{ std.name }}</h4><br>
+                <h4 class="card-title">surname : {{ std.last_name }}</h4><br>
+                <h4 class="card-title">student id : {{ std.id }}</h4><br>
+                <h4 class="card-title">class : {{ std.branch }}</h4><br>
+            </div>
+            <div class="card my-4">
+                <h4 align="center" >Exam grades</h4>
+                <table>
+                    {% for exam in exams %}
+                    <tr align="center" >
+                        <th width="200" >{{ exam.subject_name }}</th>
+                        {% for grade in exam.grades %}
+                            <th width="70">{{ grade }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="card my-4">
+                <table>
+                    <tr align="center" bgcolor="lightgrey">
+                        <th width="200">Subject</th>
+                        <th width="200">Average</th>
+                    </tr>
+                    {% for average in averages %}
+                    <tr align="center">
+                        <th width="200">{{ average.subject }}</th>
+                        <th width="200">{{ average.average }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
